@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "spaceKey": "PROJECT_SPACE_KEY",
+  "spaceId": "PROJECT_SPACE_ID",
+  "cloudId": "PROJECT_CLOUD_ID",
+  "pages": {
+    "domainModel": {
+      "pageId": "PAGE_ID_1",
+      "title": "Domain Model & Entity Hierarchy",
+      "watchPaths": [
+        "backend/src/**/*.schema.ts",
+        "backend/src/**/schemas/**/*.ts",
+        "backend/src/**/dto/**/*.ts",
+        "backend/src/**/interfaces/**/*.ts"
+      ],
+      "description": "Domain entities, Mongoose/ORM schemas, status workflows, and custom fields."
+    },
+    "mcpServer": {
+      "pageId": "PAGE_ID_2",
+      "title": "Embedded MCP Server Specification",
+      "watchPaths": [
+        "backend/src/mcp/**/*",
+        "backend/src/**/*.tool.ts"
+      ],
+      "description": "MCP endpoint configuration, SSE transport, tool definitions, and schemas."
+    },
+    "aiAssistant": {
+      "pageId": "PAGE_ID_3",
+      "title": "AI Assistant & Orchestrator Specification",
+      "watchPaths": [
+        "backend/src/ai/**/*",
+        "frontend/src/components/ai/**/*"
+      ],
+      "description": "Model orchestration, tool execution loop, prompt configs, and chat UI."
+    },
+    "multiViews": {
+      "pageId": "PAGE_ID_4",
+      "title": "Multi-View UI System Specification",
+      "watchPaths": [
+        "frontend/src/components/views/**/*",
+        "frontend/src/pages/**/*"
+      ],
+      "description": "View Toolbar, Table/List View, Kanban Board, Calendar View."
+    },
+    "projectOverview": {
+      "pageId": "PAGE_ID_5",
+      "title": "Project Overview & Architecture",
+      "watchPaths": [
+        "package.json",
+        "README.md",
+        "docker-compose.yml"
+      ],
+      "description": "High-level architecture, technology stack, and system topology."
+    },
+    "traceabilityMatrix": {
+      "pageId": "PAGE_ID_6",
+      "title": "Jira Roadmap & Backlog Traceability Matrix",
+      "watchPaths": [],
+      "description": "Mapping of specifications to Jira Epics, Stories, and Tasks."
+    }
+  }
+}

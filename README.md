@@ -1,24 +1,46 @@
 # Agent Skills Collection
 
-A curated collection of agent skills, runbooks, and workflows conforming to the modern Antigravity / AI Agent Skills standard.
+A curated collection of AI Agent skills following the modern Antigravity / Agent Skills specification.
 
 Each skill is an isolated directory containing a standard `SKILL.md` instruction file with YAML frontmatter (`name`, `description`) designed for progressive disclosure and autonomous workflow execution.
 
 ---
 
-## 🗂️ Skills Directory
+## 📁 Repository Structure
 
-| Skill | Description | Path |
-| :--- | :--- | :--- |
-| **`generate-tests`** | Generate unit and integration tests following `pytest` conventions and mocking best practices. | [`skills/generate-tests/`](./skills/generate-tests/SKILL.md) |
-| **`github-review`** | Review GitHub PRs, analyze reviewer feedback, apply auto-corrections, run test suites, and resolve threads via GraphQL. | [`skills/github-review/`](./skills/github-review/SKILL.md) |
-| **`sync-wiki`** | Inspect codebase changes and synchronize project architecture, API specs, and deployment documentation with GitHub Wiki. | [`skills/sync-wiki/`](./skills/sync-wiki/SKILL.md) |
+```text
+skills/
+├── confluence-docs-sync/
+│   ├── SKILL.md                 # Keep Confluence documentation synchronized with code & Jira
+│   └── resources/
+│       └── page-registry.json   # Template mapping between Confluence pages and code paths
+├── generate-tests/
+│   └── SKILL.md                 # Generate unit and integration tests with pytest & mocking
+├── github-review/
+│   └── SKILL.md                 # Review GitHub PRs, apply reviewer feedback, and resolve threads
+├── quality-gate/
+│   └── SKILL.md                 # Automated quality audit and post-implementation verification
+└── sync-wiki/
+    └── SKILL.md                 # Synchronize codebase changes with GitHub Wiki documentation
+```
 
 ---
 
-## 📦 Skill Structure
+## 🛠️ Available Skills
 
-Skills follow the standard directory layout:
+| Skill | Description | Path |
+| :--- | :--- | :--- |
+| **`confluence-docs-sync`** | Keeps Atlassian Confluence documentation in continuous sync with codebase changes (schemas, DTOs, API endpoints, MCP tools, and UI views) and Jira task statuses via Atlassian MCP. Includes [`page-registry.json`](./skills/confluence-docs-sync/resources/page-registry.json). | [`skills/confluence-docs-sync/`](./skills/confluence-docs-sync/SKILL.md) |
+| **`generate-tests`** | Generate unit and integration tests for backend services and APIs following `pytest` conventions, AAA pattern, and mocking best practices. | [`skills/generate-tests/`](./skills/generate-tests/SKILL.md) |
+| **`github-review`** | Review GitHub PRs, analyze reviewer comments and diffs, apply actionable code suggestions, run project checks, and resolve threads via GraphQL. | [`skills/github-review/`](./skills/github-review/SKILL.md) |
+| **`quality-gate`** | Runs an exhaustive automated quality audit and verification pass (linting, build/typecheck, unit tests, strict typing, SSR/security compliance) after completing features, bugfixes, or refactoring. | [`skills/quality-gate/`](./skills/quality-gate/SKILL.md) |
+| **`sync-wiki`** | Inspect codebase changes and synchronize project architecture, API specs, and deployment documentation with the GitHub Wiki repository. | [`skills/sync-wiki/`](./skills/sync-wiki/SKILL.md) |
+
+---
+
+## 📖 Skill Standard & Format
+
+Skills follow the modern directory layout:
 
 ```text
 skills/<skill-name>/
@@ -32,8 +54,8 @@ skills/<skill-name>/
 ### `SKILL.md` Specification
 
 Every skill starts with a YAML frontmatter block containing:
-- `name`: Lowercase hyphenated unique identifier.
-- `description`: Third-person clear summary explaining *what* the skill does and *when* the agent should invoke it.
+- `name`: Unique identifier matching the parent directory name (1–64 characters; lowercase letters, digits, and single hyphens, with no leading or trailing hyphen).
+- `description`: Third-person summary explaining *what* the skill does and *when* the agent should invoke it.
 
 ```markdown
 ---
